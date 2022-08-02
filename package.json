@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "SET NODE_ENV=DEVELOPMENT& supervisor server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& supervisor server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& supervisor backend/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& supervisor backend/server.js",
     "seeder": "node utils/seeder.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix ../frontend && npm run build --prefix ../frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "www.alireza.fi",
   "license": "ISC",
