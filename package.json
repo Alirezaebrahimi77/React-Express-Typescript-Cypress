@@ -4,7 +4,7 @@
   "description": "Ecommerce app using express and react typescript",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET node backend/server.js",
     "dev": "SET NODE_ENV=DEVELOPMENT& supervisor backend/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& supervisor backend/server.js",
     "seeder": "node utils/seeder.js",
