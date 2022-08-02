@@ -13,7 +13,7 @@ interface ProductState {
 
 export const fetchProducts = createAsyncThunk("Fetch All Products", async (_,{rejectWithValue}) => {
     try{
-        const {data} = await axios.get(`${process.env.REACT_APP_BASE_URL}/products`)
+        const {data} = await axios.get(`/api/v1/products`)
         
         return data.products
 
@@ -25,7 +25,7 @@ export const fetchProducts = createAsyncThunk("Fetch All Products", async (_,{re
 export const fetchSingleProduct = createAsyncThunk("Fetch Single Product", async (id: string,{rejectWithValue}) => {
     try{
         
-        const {data} = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/${id}`)
+        const {data} = await axios.get(`/api/v1/product/${id}`)
         
         return data.product
 
