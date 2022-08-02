@@ -5,6 +5,9 @@ const cookieParser = require("cookie-parser")
 const cors = require("cors")
 const path = require("path")
 
+// Setting up config file 
+if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
+
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors())
@@ -16,14 +19,12 @@ const auth = require("./routes/auth")
 app.use("/api/v1", products)
 app.use("/api/v1", auth)
 
-// Setting up config file 
-if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
 
 if(process.env.NODE_ENV === "PRODUCTION"){
-    app.use(express.static(path.join(__dirname, "/frontend/build")))
+    app.use(express.static(path.join(__dirname, "../frontend/build")))
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, "./frontend/build/index.html"))
+        res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
     } )
 }
 
