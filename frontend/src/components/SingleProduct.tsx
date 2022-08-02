@@ -16,8 +16,8 @@ const SingleProduct: React.FC<Props> = (props) => {
     const {cartItems, error, showCart} = useAppSelector(state => state.cart)
 
 
-    const cartHandler = () => {
-      dispatch(increaseQty(_id))
+    const cartHandler = (id: string) => {
+      dispatch(increaseQty(id))
       if(error === null){
         toast.success("Product added to cart successfully.", {position: "bottom-center"})
       }
@@ -56,7 +56,7 @@ const SingleProduct: React.FC<Props> = (props) => {
             <button onClick={openCart} className="py-2 px-4 w-full bg-black text-white border border-black transition duration-150 hover:bg-white hover:text-black" data-testid="addToCart">In Cart</button>
 
           ): (
-            <button onClick={cartHandler} className="py-2 px-4 w-full bg-black text-white border border-black transition duration-150 hover:bg-white hover:text-black" data-testid="addToCart">Add To Cart</button>
+            <button onClick={() => cartHandler(_id)} className="py-2 px-4 w-full bg-black text-white border border-black transition duration-150 hover:bg-white hover:text-black" data-testid="addToCart">Add To Cart</button>
           )
 
         }

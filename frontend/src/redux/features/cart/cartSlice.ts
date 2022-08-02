@@ -28,7 +28,7 @@ type CartData = {
 
 export const increaseQty = createAsyncThunk("product/increaseQty", (async (id: string, {rejectWithValue}) => {
     try{
-        const {data} = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/${id}`)
+        const {data} = await axios.get(`/api/v1/product/${id}`)
         const product: actionTypes= {
             id,
             product: data.product
@@ -44,7 +44,7 @@ export const addItem = createAsyncThunk("/product/addItem", (async (cartData: Ca
     try{
         const {id, quantity} = cartData;
 
-        const {data} = await axios.get(`${process.env.REACT_APP_BASE_URL}/product/${id}`)
+        const {data} = await axios.get(`/api/v1/product/${id}`)
 
         const product= {
             id,
